@@ -6,19 +6,19 @@ function ArticleCard({ articleImg, articleTitle, articleDate, articleAuthor, art
     return (
         <article className="article-card">
             <div className="article-card-img-container">
-                <Link to={`articles/${articleId}`}>
+                <Link to={`${articleId}`}>
                     <img src={articleImg} />
                 </Link>
             </div>
             <div className="article-card-info-container">
                 <p className="article-card-date">{articleDate}</p>
-                <Link to={`articles/${articleId}`}>
+                <Link to={`${articleId}`}>
                     <h3 className="article-card-title">{articleTitle}</h3>
                 </Link>
-                <Link to={`users/${articleAuthor}`}>
+                <Link to={`../users/${articleAuthor}`}>
                     <p className="article-card-author">By {articleAuthor}</p>
                 </Link>
-                <Link to={`topics/${articleTopic}`}>
+                <Link to={`../topics/${articleTopic}`}>
                     <p className="article-card-topic">{articleTopic}</p>
                 </Link>
             </div>

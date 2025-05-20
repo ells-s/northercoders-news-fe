@@ -12,6 +12,14 @@ export const fetchArticles = (sort_by = 'created_at', order = 'desc') => {
         })
 }
 
+export const fetchArticleById = (article_id) => {
+    return ncNewsApi
+        .get(`/articles/${article_id}`)
+        .then(({ data }) => {
+            return data.article[0]
+        })
+}
+
 export const fetchTopics = () => {
     return ncNewsApi
         .get("/topics")
