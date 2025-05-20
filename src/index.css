@@ -164,4 +164,31 @@ a:hover {
   flex-grow: 1;
 }
 
-.article-body-section {}
+.article-body-section {
+  margin: auto;
+  max-width: 80%;
+  padding: 10px 0 25px 0;
+}
+
+
+/* comment section  */
+
+.comment-section {
+  margin: auto;
+  max-width: 80%;
+}
+
+.comment-username {
+  font-weight: 600;
+}
+
+.individual-comment {
+  border: 1px solid #eeebeb;
+  padding: 0 15px;
+  margin: 10px 0;
+}
+
+.individual-comment-info {
+  display: flex;
+  justify-content: space-between;
+}

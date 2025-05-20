@@ -37,7 +37,7 @@ function Article() {
             <section className="article-body-section">
                 <p>{currentArticle.body}</p>
             </section>
-            <CommentSection />
+            <CommentSection article_id={article_id} />
         </article>
     )
 }
