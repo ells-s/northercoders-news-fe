@@ -133,3 +133,35 @@ a:hover {
 .article-card-date {
   text-align: left;
 }
+
+/* individual article  */
+
+.indiviual-article {
+  padding: 20px;
+}
+
+.indiviual-article-header {
+  text-align: center;
+}
+
+.indiviual-article-header img {
+  max-width: 90%;
+}
+
+.indiviual-article-header p {
+  text-align: left;
+  padding: 0 50px;
+}
+
+.indiviual-article-info-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 50px;
+}
+
+.individual-article-author {
+  flex-grow: 1;
+}
+
+.article-body-section {}
