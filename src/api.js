@@ -35,3 +35,11 @@ export const fetchTopics = () => {
             return data.topics
         })
 }
+
+export const fetchUsers = () => {
+    return ncNewsApi
+        .get("/users")
+        .then(({ data }) => {
+            return data.users
+        })
+}

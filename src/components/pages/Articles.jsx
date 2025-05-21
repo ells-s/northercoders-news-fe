@@ -7,7 +7,6 @@ function Articles() {
 
     const [allArticles, setAllArticles] = useState([])
 
-
     useEffect(() => {
         fetchArticles()
             .then((res) => {
