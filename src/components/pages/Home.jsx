@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import FeatureArticleCard from "../FeatureArticleCard"
 import { fetchArticles, fetchTopics } from "../../api"
-import ArticleCard from "../ArticleCard"
+import HomeArticleCard from "../HomeArticleCard"
 import { Link } from "react-router-dom"
 
 function Home() {
@@ -39,7 +39,7 @@ function Home() {
             <h1>Breaking</h1>
             <FeatureArticleCard key={featureArticle.article_id} articleImg={featureArticle.article_img_url} articleTitle={featureArticle.title} articleDate={featureArticle.created_at} articleAuthor={featureArticle.author} articleTopic={featureArticle.topic} articleVotes={featureArticle.votes} articleCommentCount={featureArticle.comment_count} articleId={featureArticle.article_id} />
             {subFeatureArticles.map((article) => {
-                return <ArticleCard key={article.article_id} articleImg={article.article_img_url} articleTitle={article.title} articleDate={article.created_at} articleAuthor={article.author} articleTopic={article.topic} articleVotes={article.votes} articleCommentCount={article.comment_count} articleId={article.article_id} />
+                return <HomeArticleCard key={article.article_id} articleImg={article.article_img_url} articleTitle={article.title} articleDate={article.created_at} articleAuthor={article.author} articleTopic={article.topic} articleVotes={article.votes} articleCommentCount={article.comment_count} articleId={article.article_id} />
             })}
             <Link to={"/articles"}>View more articles</Link>
             <h2>Topics:</h2>
@@ -51,7 +51,7 @@ function Home() {
             <h2>Most Voted Articles</h2>
             <ol>
                 {mostVotedArticles.map((article) => {
-                    return <li><ArticleCard key={article.article_id} articleImg={article.article_img_url} articleTitle={article.title} articleDate={article.created_at} articleAuthor={article.author} articleTopic={article.topic} articleVotes={article.votes} articleCommentCount={article.comment_count} articleId={article.article_id} /></li>
+                    return <li><HomeArticleCard key={article.article_id} articleImg={article.article_img_url} articleTitle={article.title} articleDate={article.created_at} articleAuthor={article.author} articleTopic={article.topic} articleVotes={article.votes} articleCommentCount={article.comment_count} articleId={article.article_id} /></li>
                 })}
 
             </ol>

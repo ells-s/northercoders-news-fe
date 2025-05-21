@@ -7,15 +7,15 @@ function FeatureArticleCard({ articleImg, articleTitle, articleDate, articleAuth
     return (
         <article className="featured-article-card">
             <div className="featured-article-card-img-container">
-                <p className="featured-article-card-topic"><Link to={`../topics/${articleTopic}`}>{articleTopic}</Link></p>
+                <p className="featured-article-card-topic"><Link to={`topics/${articleTopic}`}>{articleTopic}</Link></p>
                 <h3 className="featured-article-card-title"><Link to={`${articleId}`}>{articleTitle}</Link></h3>
-                <Link to={`${articleId}`}>
+                <Link to={`articles/${articleId}`}>
                     <img src={articleImg} />
                 </Link>
                 <FormattedDate timestamp={articleDate} />
             </div>
             <div className="featured-article-card-info-container">
-                <p className="featured-article-card-author"><Link to={`../users/${articleAuthor}`}>By {articleAuthor}</Link></p>
+                <p className="featured-article-card-author"><Link to={`users/${articleAuthor}`}>By {articleAuthor}</Link></p>
             </div>
             <div className="featured-article-card-details-container">
                 <p className="featured-article-card-votes">Votes: {articleVotes}</p>
