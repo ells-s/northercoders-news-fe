@@ -3,8 +3,9 @@ import { Link, useParams } from "react-router-dom"
 import { fetchArticleById } from "../../api"
 import CommentSection from "../CommentSection"
 import FormattedDate from "../FormattedDate"
+import ArticleVotingOption from "../ArticleVotingOption"
 
-function Article() {
+function Article({ username }) {
     const { article_id } = useParams()
     const [currentArticle, setCurrentArticle] = useState({})
 
@@ -23,15 +24,16 @@ function Article() {
             <section className="indiviual-article-header">
                 <h1>{currentArticle.title}</h1>
                 <img src={currentArticle.article_img_url}></img>
-                <FormattedDate timestamp={currentArticle.created_at} />
             </section>
             <section className="indiviual-article-info-section">
                 <div>
                     <p className="individual-article-author"> <strong>By</strong> <Link to={`../users/${currentArticle.author}`}>{currentArticle.author}</Link></p>
                     <p><Link to={`../topics/${currentArticle.topic}`}>{currentArticle.topic}</Link></p>
+                    <FormattedDate timestamp={currentArticle.created_at} />
                 </div>
                 <div>
-                    <p><strong>Votes:</strong> {currentArticle.votes}</p>
+                    <ArticleVotingOption username={username} article_id={article_id} />
+
                     <p><strong>Comments:</strong> {currentArticle.comment_count}</p>
                 </div>
             </section>

@@ -43,3 +43,11 @@ export const fetchUsers = () => {
             return data.users
         })
 }
+
+export const updateArticleVotes = (article_id, numOfVotesToPatch) => {
+    return ncNewsApi
+        .patch(`./articles/${article_id}`, { inc_votes: numOfVotesToPatch })
+        .then((res) => {
+            console.log(res)
+        })
+}
