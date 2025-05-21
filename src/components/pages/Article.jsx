@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { Link, useParams } from "react-router-dom"
 import { fetchArticleById } from "../../api"
 import CommentSection from "../CommentSection"
+import FormattedDate from "../FormattedDate"
 
 function Article() {
     const { article_id } = useParams()
@@ -22,7 +23,7 @@ function Article() {
             <section className="indiviual-article-header">
                 <h1>{currentArticle.title}</h1>
                 <img src={currentArticle.article_img_url}></img>
-                <p>{currentArticle.created_at}</p>
+                <FormattedDate timestamp={currentArticle.created_at} />
             </section>
             <section className="indiviual-article-info-section">
                 <div>

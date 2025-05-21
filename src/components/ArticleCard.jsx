@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+import FormattedDate from "./FormattedDate"
 
 
 function ArticleCard({ articleImg, articleTitle, articleDate, articleAuthor, articleTopic, articleVotes, articleCommentCount, articleId }) {
@@ -11,7 +12,7 @@ function ArticleCard({ articleImg, articleTitle, articleDate, articleAuthor, art
                 </Link>
             </div>
             <div className="article-card-info-container">
-                <p className="article-card-date">{articleDate}</p>
+                <FormattedDate timestamp={articleDate} />
                 <Link to={`${articleId}`}>
                     <h3 className="article-card-title">{articleTitle}</h3>
                 </Link>

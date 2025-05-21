@@ -81,8 +81,16 @@ button:focus-visible {
 
 .header {
   border: 1px solid red;
+  padding: 15px;
 }
 
+.header a {
+  padding: 10px;
+}
+
+.footer-login-message {
+  border: 1px solid red;
+}
 
 /* general */
 body {
@@ -97,6 +105,39 @@ a {
 
 a:hover {
   color: #4a4e93;
+}
+
+/* featured article card */
+
+.featured-article-card {
+  border: 1px solid #eeebeb;
+  padding: 20px;
+}
+
+.featured-article-card-img-container {
+  max-width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+
+.featured-article-card-img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.featured-article-card-info-container {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.featured-article-card-date {
+  text-align: left;
 }
 
 
