@@ -21,7 +21,7 @@ function App() {
         <Route path="/login" element={<LoginPage username={username} setUsername={setUsername} />} />
         <Route path="/users/:user" element={<UserProfile username={username} />} />
         <Route path="/articles" element={<Articles />} />
-        <Route path="/articles/:article_id" element={<Article />} />
+        <Route path="/articles/:article_id" element={<Article username={username} />} />
         <Route path="/topics/:topic" element={<Topic />} />
       </Routes>
       <Footer username={username}></Footer>

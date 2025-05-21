@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import { fetchCommentsByArticleId } from "../api"
+import FormattedDate from "./FormattedDate"
 
 function CommentSection({ article_id }) {
 
@@ -24,7 +25,7 @@ function CommentSection({ article_id }) {
                         <p className="comment-username">{comment.author}</p>
                         <p>{comment.body}</p>
                         <div className="individual-comment-info">
-                            <p className="comment-created-at">{comment.created_at}</p>
+                            <FormattedDate timestamp={comment.created_at} />
                             <p><strong>Votes:</strong> {comment.votes}</p>
                         </div>
                     </div>)
