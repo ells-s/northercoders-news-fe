@@ -44,10 +44,10 @@ function Header({ username, setUsername }) {
                         :
                         <Link to="/login" className="menu-item">Login</Link>}
                     <Link to="/articles" className="menu-item">All Articles</Link>
-                    {username ? <button onClick={handleLogOut} className="menu-item" >log out</button> : null}
                     {topics.map((topic) => {
                         return (<Link to={`/topics/${topic.slug}`} className="menu-item" >{`${topic.slug[0].toUpperCase()}${topic.slug.slice(1)}`}</Link>)
                     })}
+                    {username ? <button onClick={handleLogOut} className="menu-item" >log out</button> : null}
                 </nav>
                 :
                 null
