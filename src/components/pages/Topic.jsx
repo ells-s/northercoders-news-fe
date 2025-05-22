@@ -1,9 +1,59 @@
+import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
+import { fetchArticlesByTopic, fetchTopics } from "../../api"
+import TopicArticleCard from "../TopicArticleCard"
+import { Link } from "react-router-dom"
+
 
 function Topic() {
     const { topic } = useParams()
+    const [allArticlesOfTopic, setAllArticlesOfTopic] = useState([])
+    const [topics, setTopics] = useState([])
+    const [topicViewOpen, setTopicViewOpen] = useState(false)
+
+    useEffect(() => {
+        fetchArticlesByTopic(topic)
+            .then((res) => {
+                setAllArticlesOfTopic(res)
+            })
+            .then(() => {
+                return fetchTopics()
+            })
+            .then((res) => {
+                setTopics(res)
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+    }, [topic])
+
+    function handleTopicsListView(event) {
+        event.preventDefault();
+        setTopicViewOpen(!topicViewOpen)
+    }
+
     return <>
-        <h1>TOPIC PAGE: {topic}</h1>
+        <h1>{`${topic[0].toUpperCase()}${topic.slice(1)}`}</h1>
+        {allArticlesOfTopic.map((article) => {
+            return <TopicArticleCard key={article.article_id} articleImg={article.article_img_url} articleTitle={article.title} articleDate={article.created_at} articleAuthor={article.author} articleTopic={article.topic} articleVotes={article.votes} articleCommentCount={article.comment_count} articleId={article.article_id} />
+        })}
+        <section className="more-topics-section">
+            <button
+                className="more-topics-button"
+                onClick={handleTopicsListView}>View More Topics</button>
+            {
+                topicViewOpen ?
+                    <div className="more-topics-items">
+                        {topics.map((eachTopic) => {
+                            if (eachTopic.slug !== topic) {
+                                return (<p key={eachTopic.slug} className="more-topics-item"><Link to={`../topics/${eachTopic.slug}`}>{eachTopic.slug}</Link></p>)
+                            }
+                        })}
+                    </div>
+                    :
+                    null
+            }
+        </section>
     </>
 }
 

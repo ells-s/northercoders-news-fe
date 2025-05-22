@@ -96,11 +96,15 @@ button:focus-visible {
 
 }
 
-.header a {
-  padding: 10px;
+.menu-nav {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.header a {
+.menu-item {
   padding: 10px;
 }
 
@@ -358,3 +362,33 @@ a:hover {
   color: rgb(16, 5, 83);
 
 }
+
+/* topic page */
+.more-topics-section {}
+
+.more-topics-button {
+  background-color: rgb(255, 255, 255);
+  border: 2px solid rgb(198, 212, 216);
+  padding: 8px;
+  margin: auto;
+  border-radius: 5%;
+  height: 40px;
+  color: rgb(16, 5, 83);
+  display: block;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.more-topics-button:hover {
+  background-color: rgb(196, 222, 229);
+  border: 2px solid rgb(117, 150, 160);
+}
+
+.more-topics-items {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.more-topics-item {}
