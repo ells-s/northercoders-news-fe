@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom"
 import { fetchArticlesByTopic, fetchTopics } from "../../api"
 import TopicArticleCard from "../TopicArticleCard"
 import { Link } from "react-router-dom"
+import TopicsPageArticleSorter from "../TopicPageArticleSorter"
 
 
 function Topic() {
@@ -34,6 +35,7 @@ function Topic() {
 
     return <>
         <h1>{`${topic[0].toUpperCase()}${topic.slice(1)}`}</h1>
+        <TopicsPageArticleSorter setAllArticlesOfTopic={setAllArticlesOfTopic} topic={topic} />
         {allArticlesOfTopic.map((article) => {
             return <TopicArticleCard key={article.article_id} articleImg={article.article_img_url} articleTitle={article.title} articleDate={article.created_at} articleAuthor={article.author} articleTopic={article.topic} articleVotes={article.votes} articleCommentCount={article.comment_count} articleId={article.article_id} />
         })}

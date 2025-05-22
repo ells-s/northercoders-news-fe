@@ -1,12 +1,16 @@
 import axios from "axios"
+import { useParams } from "react-router-dom"
 
 const ncNewsApi = axios.create({
     baseURL: "https://ells-s-nc-news.onrender.com/api"
 })
 
-export const fetchArticles = (sort_by = 'created_at', order = 'desc') => {
+export const fetchArticles = (sort_by = 'created_at', order = 'desc', topic = null) => {
+    const params = { sort_by, order }
+    if (topic) params.topic = topic
+
     return ncNewsApi
-        .get(`/articles?sort_by=${sort_by}&order=${order}`)
+        .get('/articles', { params })
         .then(({ data }) => {
             return data.articles
         })
