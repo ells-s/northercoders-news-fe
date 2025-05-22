@@ -298,3 +298,41 @@ a:hover {
   font-size: small;
   color: rgb(20, 35, 131);
 }
+
+/* comment form  */
+
+.comment-form {
+  width: 100%;
+  text-align: center;
+}
+
+.comment-form input {
+  width: 80%;
+  background-color: rgb(255, 255, 255);
+  border: 2px solid rgb(198, 212, 216);
+  padding: 10px;
+}
+
+.comment-form button {
+  background-color: rgb(255, 255, 255);
+  border: 2px solid rgb(198, 212, 216);
+  padding: 8px;
+  margin: 5px;
+  border-radius: 5%;
+  height: 40px;
+  aspect-ratio: 1/1;
+  color: rgb(16, 5, 83);
+
+}
+
+.comment-form button:hover {
+  background-color: rgb(196, 222, 229);
+  border: 2px solid rgb(117, 150, 160);
+  padding: 8px;
+  margin: 5px;
+  border-radius: 5%;
+  height: 40px;
+  aspect-ratio: 1/1;
+  color: rgb(16, 5, 83);
+
+}

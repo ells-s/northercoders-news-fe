@@ -5,6 +5,7 @@ import CommentSection from "../CommentSection"
 import FormattedDate from "../FormattedDate"
 import ArticleVotingOption from "../ArticleVotingOption"
 
+
 function Article({ username }) {
     const { article_id } = useParams()
     const [currentArticle, setCurrentArticle] = useState({})
@@ -40,7 +41,7 @@ function Article({ username }) {
             <section className="article-body-section">
                 <p>{currentArticle.body}</p>
             </section>
-            <CommentSection article_id={article_id} />
+            <CommentSection article_id={article_id} username={username} />
         </article>
     )
 }

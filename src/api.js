@@ -51,3 +51,11 @@ export const updateArticleVotes = (article_id, numOfVotesToPatch) => {
             console.log(res)
         })
 }
+
+export const postNewComment = (article_id, username, commentContent) => {
+    return ncNewsApi
+        .post(`./articles/${article_id}/comments`, { username: username, body: commentContent })
+        .then((res) => {
+            console.log(res)
+        })
+}
