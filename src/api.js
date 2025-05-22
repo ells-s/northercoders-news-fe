@@ -46,7 +46,7 @@ export const fetchUsers = () => {
 
 export const updateArticleVotes = (article_id, numOfVotesToPatch) => {
     return ncNewsApi
-        .patch(`./articles/${article_id}`, { inc_votes: numOfVotesToPatch })
+        .patch(`/articles/${article_id}`, { inc_votes: numOfVotesToPatch })
         .then((res) => {
             console.log(res)
         })
@@ -54,7 +54,15 @@ export const updateArticleVotes = (article_id, numOfVotesToPatch) => {
 
 export const postNewComment = (article_id, username, commentContent) => {
     return ncNewsApi
-        .post(`./articles/${article_id}/comments`, { username: username, body: commentContent })
+        .post(`/articles/${article_id}/comments`, { username: username, body: commentContent })
+        .then((res) => {
+            console.log(res)
+        })
+}
+
+export const deleteComment = (commentId) => {
+    return ncNewsApi
+        .delete(`/comments/${commentId} `)
         .then((res) => {
             console.log(res)
         })

@@ -8,7 +8,7 @@ function FeatureArticleCard({ articleImg, articleTitle, articleDate, articleAuth
         <article className="featured-article-card">
             <div className="featured-article-card-img-container">
                 <p className="featured-article-card-topic"><Link to={`topics/${articleTopic}`}>{articleTopic}</Link></p>
-                <h3 className="featured-article-card-title"><Link to={`${articleId}`}>{articleTitle}</Link></h3>
+                <h3 className="featured-article-card-title"><Link to={`articles/${articleId}`}>{articleTitle}</Link></h3>
                 <Link to={`articles/${articleId}`}>
                     <img src={articleImg} />
                 </Link>
