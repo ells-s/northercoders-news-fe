@@ -67,3 +67,11 @@ export const deleteComment = (commentId) => {
             console.log(res)
         })
 }
+
+export const fetchArticlesByTopic = (topic) => {
+    return ncNewsApi
+        .get(`articles?topic=${topic}`)
+        .then(({ data }) => {
+            return data.articles
+        })
+}
