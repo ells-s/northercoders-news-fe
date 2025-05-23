@@ -10,13 +10,14 @@ function ArticleVotingOption({ username, article_id }) {
     const [voteError, setVoteError] = useState("")
 
     useEffect(() => {
+        setVoteError("")
         fetchArticleById(article_id)
             .then((res) => {
                 setVotes(res.votes)
                 setAuthor(res.author)
             })
             .catch((err) => {
-                console.log(err)
+                setVoteError("Something went wrong")
             })
     }, [])
 

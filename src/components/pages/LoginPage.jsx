@@ -5,30 +5,38 @@ import { useNavigate } from "react-router-dom";
 
 function LoginPage({ username, setUsername }) {
     const [usernameTextInput, setUsernameTextInput] = useState("");
+    const [errorMessage, setErrorMessage] = useState("")
     let navigate = useNavigate();
 
     function handleUsernameInputChange(event) {
         setUsernameTextInput(event.target.value);
     }
 
-
     function setUsernameFromTextBox(event) {
         event.preventDefault();
+        setErrorMessage("")
         fetchUsers()
             .then((res) => {
+                let navUsername = ""
                 res.forEach((user) => {
                     if (user.username === usernameTextInput) {
                         setUsername(usernameTextInput);
+                        navUsername = user.username
                     }
                 })
+                return navUsername
             })
-            .then(() => {
-                if (username) {
-                    navigate(`../users/${username}`)
+            .then((res) => {
+                if (res) {
+                    setErrorMessage("")
+                    navigate(`../users/${res}`)
+                }
+                else {
+                    setErrorMessage("Invalid username.")
                 }
             })
             .catch((err) => {
-                console.log(err)
+                setErrorMessage("An error occured when trying to log in. Please try again.")
             })
     }
 
@@ -41,8 +49,8 @@ function LoginPage({ username, setUsername }) {
                     onChange={handleUsernameInputChange}
                 ></input>
                 <button onClick={setUsernameFromTextBox}>Sign In</button>
-                {/* <p>{username ? `Welcome ${username}` : null}</p> */}
             </form>
+            {errorMessage ? <p>{errorMessage}</p> : null}
         </>
     )
 
