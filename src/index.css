@@ -72,27 +72,17 @@ button:focus-visible {
   }
 } */
 
-/* outlines */
-
-.app-outlines {
-  border: 1px solid red;
-
-}
-
-.header {
-  border: 1px solid red;
-}
-
-
-.footer-login-message {
-  border: 1px solid red;
-}
-
 /* general */
 
+:root {
+  font-family: "Open Sans", sans-serif;
+  background-color: #fcfcfc;
+
+
+}
+
 .header {
-  border: 1px solid red;
-  padding: 15px;
+  background-color: #173e7c;
   display: flex;
   flex-direction: column;
   align-items: end;
@@ -100,14 +90,56 @@ button:focus-visible {
 
 }
 
+.header-bar {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.logo {
+  color: white;
+}
+
+.logo:hover {
+  color: rgb(225, 235, 238);
+}
+
+.footer {
+  background-color: #173e7c;
+  padding: 10px;
+}
+
+.footer-login-message {
+  color: #fcfcfc;
+}
+
+.footer-login-message a {
+  color: rgb(183, 217, 226);
+}
+
+.footer-login-message a:hover {
+  color: white;
+}
+
 .menu-icon-button {
   background: none;
   color: inherit;
   border: none;
-  padding: 0;
+  padding: 15px;
   font: inherit;
   cursor: pointer;
-  outline: inherit;
+
+}
+
+.menu-icon-button:hover {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 15px;
+  font: inherit;
+  cursor: pointer;
+
 }
 
 .menu-icon-img {
@@ -116,29 +148,47 @@ button:focus-visible {
 
 .menu-nav {
   margin: auto;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-color: #eeebeb;
+  padding: 10px
 }
 
 .menu-item {
   padding: 10px;
 }
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
+.menu-item-button {
+  padding: 10px;
+  font-weight: 700;
+  color: #173e7c;
+  border-radius: 5%;
 }
 
+.menu-item-button:hover {
+  padding: 10px;
+  font-weight: 700;
+  color: #173e7c;
+  border-radius: 5%;
+  border: 2px solid rgb(117, 150, 160);
+}
+
+
 a {
-  font-weight: 500;
-  color: #2931ba;
+  font-weight: 700;
+  color: #173e7c;
   text-decoration: inherit;
 }
 
 a:hover {
-  color: #4a4e93;
+  color: #92400E;
 }
+
+
+
 
 /* featured article card */
 
@@ -316,6 +366,10 @@ a:hover {
   color: rgb(16, 5, 83);
 }
 
+.voted-button:hover {
+  border-radius: 30%;
+}
+
 .voted-button-selected {
   background-color: rgb(196, 222, 229);
   border: 2px solid rgb(117, 150, 160);
@@ -364,21 +418,14 @@ a:hover {
   margin: 5px;
   border-radius: 5%;
   height: 40px;
-  aspect-ratio: 1/1;
-  color: rgb(16, 5, 83);
-
 }
 
 .comment-form button:hover {
-  background-color: rgb(196, 222, 229);
   border: 2px solid rgb(117, 150, 160);
   padding: 8px;
   margin: 5px;
   border-radius: 5%;
   height: 40px;
-  aspect-ratio: 1/1;
-  color: rgb(16, 5, 83);
-
 }
 
 /* topic page */
