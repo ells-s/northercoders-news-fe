@@ -5,14 +5,16 @@ function TopicsPageArticleSorter({ setAllArticlesOfTopic, topic }) {
 
     const [sortBy, setSortBy] = useState('created_at')
     const [order, setOrder] = useState('desc')
+    const [sortingError, setSortingError] = useState("")
 
     useEffect(() => {
+        setSortingError("")
         fetchArticles(sortBy, order, topic)
             .then((res) => {
                 setAllArticlesOfTopic(res)
             })
             .catch((err) => {
-                console.log(err)
+                setSortingError("An error occured while trying to the sort articles, please try again.")
             })
     }, [sortBy, order])
 
@@ -34,6 +36,7 @@ function TopicsPageArticleSorter({ setAllArticlesOfTopic, topic }) {
 
     return (
         <>
+            {sortingError ? <p>{sortingError}</p> : null}
             <select onChange={handleSortOption}>
                 <option value="TimePosted">Time Posted</option>
                 <option value="Votes">Votes</option>

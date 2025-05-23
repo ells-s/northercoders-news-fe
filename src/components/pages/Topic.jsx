@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { Navigate, useParams } from "react-router-dom"
 import { fetchArticlesByTopic, fetchTopics } from "../../api"
 import TopicArticleCard from "../TopicArticleCard"
 import { Link } from "react-router-dom"
@@ -11,8 +11,12 @@ function Topic() {
     const [allArticlesOfTopic, setAllArticlesOfTopic] = useState([])
     const [topics, setTopics] = useState([])
     const [topicViewOpen, setTopicViewOpen] = useState(false)
+    const [validTopicError, setValidTopicError] = useState(false)
+    const [errorMessage, setErrorMessage] = useState(false)
 
     useEffect(() => {
+        setValidTopicError(false)
+        setErrorMessage(false)
         fetchArticlesByTopic(topic)
             .then((res) => {
                 setAllArticlesOfTopic(res)
@@ -24,9 +28,18 @@ function Topic() {
                 setTopics(res)
             })
             .catch((err) => {
-                console.log(err)
+                if (err.response && err.status === 404) {
+                    setValidTopicError(true)
+                }
+                else {
+                    setErrorMessage(true)
+                }
             })
     }, [topic])
+
+    if (validTopicError) {
+        return <Navigate to="../not-found" />
+    }
 
     function handleTopicsListView(event) {
         event.preventDefault();
