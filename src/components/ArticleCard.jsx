@@ -1,25 +1,32 @@
-import { Link } from "react-router-dom"
-import FormattedDate from "./FormattedDate"
+import { Link } from "react-router-dom";
+import FormattedDate from "./FormattedDate";
 
-
-function ArticleCard({ articleImg, articleTitle, articleDate, articleAuthor, articleTopic, articleVotes, articleCommentCount, articleId }) {
-
+function ArticleCard({
+    articleImg,
+    articleTitle,
+    articleDate,
+    articleAuthor,
+    articleTopic,
+    articleVotes,
+    articleCommentCount,
+    articleId,
+}) {
     return (
         <article className="article-card">
             <div className="article-card-img-container">
-                <Link to={`${articleId}`}>
-                    <img src={articleImg} />
+                <Link to={`/articles/${articleId}`}>
+                    <img src={articleImg} alt={articleTitle} />
                 </Link>
             </div>
             <div className="article-card-info-container">
                 <FormattedDate timestamp={articleDate} />
-                <Link to={`${articleId}`}>
+                <Link to={`/articles/${articleId}`}>
                     <h3 className="article-card-title">{articleTitle}</h3>
                 </Link>
-                <Link to={`../users/${articleAuthor}`}>
+                <Link to={`/users/${articleAuthor}`}>
                     <p className="article-card-author">By {articleAuthor}</p>
                 </Link>
-                <Link to={`../topics/${articleTopic}`}>
+                <Link to={`/topics/${articleTopic}`}>
                     <p className="article-card-topic">{articleTopic}</p>
                 </Link>
             </div>
@@ -28,7 +35,7 @@ function ArticleCard({ articleImg, articleTitle, articleDate, articleAuthor, art
                 <p className="article-card-comments">Comments: {articleCommentCount}</p>
             </div>
         </article>
-    )
+    );
 }
 
-export default ArticleCard
+export default ArticleCard;

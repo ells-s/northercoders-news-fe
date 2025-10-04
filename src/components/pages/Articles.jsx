@@ -15,12 +15,12 @@ function Articles() {
                 setAllArticles(res)
             })
             .catch((err) => {
-                setFetchingErrorMessage("An error occured when trying to access the articles. Please try again.")
+                setFetchingErrorMessage("An error occurred when trying to access the articles. Please try again.")
             })
     }, [])
 
     return (
-        <>
+        <div className="container">
             <h1>All Articles</h1>
             <ArticleSorter setAllArticles={setAllArticles} />
             {fetchingErrorMessage ? <p>{fetchingErrorMessage}</p> :
@@ -30,7 +30,7 @@ function Articles() {
                     })}
                 </>
             }
-        </>
+        </div>
     )
 }
 

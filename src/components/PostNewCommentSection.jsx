@@ -1,6 +1,4 @@
 import { useState, useEffect } from "react"
-// import { fetchCommentsByArticleId } from "../api"
-// import FormattedDate from "./FormattedDate"
 import { postNewComment } from "../api"
 
 function PostNewCommentSection({ article_id, username, newCommentPosted, setNewCommentPosted }) {
@@ -42,15 +40,22 @@ function PostNewCommentSection({ article_id, username, newCommentPosted, setNewC
         <section >
             <h3>Add New Comment:</h3>
             {loading ? <p>Loading...</p> : null}
-            <form className="comment-form">
+            <form className="form-container">
+                <label htmlFor="commentInput" className="form-label">Add a comment:</label>
                 <input
+                    id="commentInput"
                     type="text"
-                    onBlur={handleCommentContent}
-                    placeholder="enter comment here" />
+                    className="form-input"
+                    onChange={handleCommentContent}
+                    placeholder="Enter your comment"
+                />
                 <button
                     type="submit"
                     onClick={handleCommentSubmit}
-                >Submit</button>
+                    className="button"
+                >
+                    Submit
+                </button>
             </form>
             {commentError ? <p>{commentError}</p> : null}
         </section>

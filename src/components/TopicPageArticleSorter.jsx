@@ -14,7 +14,7 @@ function TopicsPageArticleSorter({ setAllArticlesOfTopic, topic }) {
                 setAllArticlesOfTopic(res)
             })
             .catch((err) => {
-                setSortingError("An error occured while trying to the sort articles, please try again.")
+                setSortingError("An error occurred while trying to the sort articles, please try again.")
             })
     }, [sortBy, order])
 
@@ -37,15 +37,17 @@ function TopicsPageArticleSorter({ setAllArticlesOfTopic, topic }) {
     return (
         <>
             {sortingError ? <p>{sortingError}</p> : null}
-            <select onChange={handleSortOption}>
-                <option value="TimePosted">Time Posted</option>
-                <option value="Votes">Votes</option>
-                <option value="CommentCount">Comment Count</option>
-            </select>
-            <select onChange={handleSortOrder}>
-                <option value="DESC">DESC</option>
-                <option value="ASC">ASC</option>
-            </select>
+            <div className="article-sorter">
+                <select onChange={handleSortOption} className="dropdown">
+                    <option value="TimePosted">Time Posted</option>
+                    <option value="Votes">Votes</option>
+                    <option value="CommentCount">Comment Count</option>
+                </select>
+                <select onChange={handleSortOrder} className="dropdown">
+                    <option value="DESC">DESC</option>
+                    <option value="ASC">ASC</option>
+                </select>
+            </div>
         </>
     )
 }

@@ -46,30 +46,36 @@ function Topic() {
         setTopicViewOpen(!topicViewOpen)
     }
 
-    return <>
-        <h1>{`${topic[0].toUpperCase()}${topic.slice(1)}`}</h1>
-        <TopicsPageArticleSorter setAllArticlesOfTopic={setAllArticlesOfTopic} topic={topic} />
-        {allArticlesOfTopic.map((article) => {
-            return <TopicArticleCard key={article.article_id} articleImg={article.article_img_url} articleTitle={article.title} articleDate={article.created_at} articleAuthor={article.author} articleTopic={article.topic} articleVotes={article.votes} articleCommentCount={article.comment_count} articleId={article.article_id} />
-        })}
-        <section className="more-topics-section">
-            <button
-                className="more-topics-button"
-                onClick={handleTopicsListView}>View More Topics</button>
-            {
-                topicViewOpen ?
-                    <div className="more-topics-items">
-                        {topics.map((eachTopic) => {
-                            if (eachTopic.slug !== topic) {
-                                return (<p key={eachTopic.slug} className="more-topics-item"><Link to={`../topics/${eachTopic.slug}`}>{eachTopic.slug}</Link></p>)
-                            }
-                        })}
-                    </div>
-                    :
-                    null
-            }
-        </section>
-    </>
+    return (
+        <div className="container">
+            <h1>{`${topic[0].toUpperCase()}${topic.slice(1)}`}</h1>
+            <TopicsPageArticleSorter setAllArticlesOfTopic={setAllArticlesOfTopic} topic={topic} />
+            {allArticlesOfTopic.map((article) => {
+                return <TopicArticleCard key={article.article_id} articleImg={article.article_img_url} articleTitle={article.title} articleDate={article.created_at} articleAuthor={article.author} articleTopic={article.topic} articleVotes={article.votes} articleCommentCount={article.comment_count} articleId={article.article_id} />
+            })}
+            <section className="more-topics-section">
+
+                <button
+                    className="button button-outline more-topics-button"
+                    onClick={handleTopicsListView}
+                >
+                    View More Topics
+                </button>
+                {
+                    topicViewOpen ?
+                        <div className="more-topics-items">
+                            {topics.map((eachTopic) => {
+                                if (eachTopic.slug !== topic) {
+                                    return (<p key={eachTopic.slug} className="more-topics-item"><Link to={`../topics/${eachTopic.slug}`}>{eachTopic.slug}</Link></p>)
+                                }
+                            })}
+                        </div>
+                        :
+                        null
+                }
+            </section>
+        </div>
+    )
 }
 
 export default Topic

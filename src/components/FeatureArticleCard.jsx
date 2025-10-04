@@ -10,7 +10,7 @@ function FeatureArticleCard({ articleImg, articleTitle, articleDate, articleAuth
                 <p className="featured-article-card-topic"><Link to={`topics/${articleTopic}`}>{articleTopic}</Link></p>
                 <h3 className="featured-article-card-title"><Link to={`articles/${articleId}`}>{articleTitle}</Link></h3>
                 <Link to={`articles/${articleId}`}>
-                    <img src={articleImg} />
+                    <img src={articleImg} alt={articleTitle} />
                 </Link>
                 <FormattedDate timestamp={articleDate} />
             </div>

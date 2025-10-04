@@ -8,7 +8,7 @@ function TopicArticleCard({ articleImg, articleTitle, articleDate, articleAuthor
         <article className="article-card">
             <div className="article-card-img-container">
                 <Link to={`../articles/${articleId}`}>
-                    <img src={articleImg} />
+                    <img src={articleImg} alt={articleTitle} />
                 </Link>
             </div>
             <div className="article-card-info-container">

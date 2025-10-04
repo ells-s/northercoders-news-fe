@@ -14,7 +14,7 @@ function ArticleSorter({ setAllArticles }) {
                 setAllArticles(res)
             })
             .catch((err) => {
-                setSortingError("An error occured while trying to the sort articles, please try again.")
+                setSortingError("An error occurred while trying to the sort articles, please try again.")
             })
     }, [sortBy, order])
 
@@ -35,18 +35,21 @@ function ArticleSorter({ setAllArticles }) {
     }
 
     return (
-        <>
-            {sortingError ? <p>{sortingError}</p> : null}
-            <select onChange={handleSortOption}>
+
+        <div className="article-sorter">
+            {sortingError && <p>{sortingError}</p>}
+
+            <select onChange={handleSortOption} className="dropdown">
                 <option value="TimePosted">Time Posted</option>
                 <option value="Votes">Votes</option>
                 <option value="CommentCount">Comment Count</option>
             </select>
-            <select onChange={handleSortOrder}>
+
+            <select onChange={handleSortOrder} className="dropdown">
                 <option value="DESC">DESC</option>
                 <option value="ASC">ASC</option>
             </select>
-        </>
+        </div>
     )
 }
 
