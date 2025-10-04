@@ -33,6 +33,10 @@ function Header({ username, setUsername }) {
         navigate("/")
     }
 
+    function handleNavLinkClick() {
+        setNavBarOpen(false);
+    }
+
 
 
     return (
@@ -48,16 +52,38 @@ function Header({ username, setUsername }) {
             </div>
             {navbarOpen ?
                 <nav className="menu-nav">
-                    <Link to="/" className="menu-item">Home</Link>
-                    {username ?
-                        <Link to={`/users/${username}`}>Profile</Link>
-                        :
-                        <Link to="/login" className="menu-item">Login</Link>}
-                    <Link to="/articles" className="menu-item">All Articles</Link>
-                    {topics.map((topic) => {
-                        return (<Link to={`/topics/${topic.slug}`} key={topic.slug} className="menu-item" >{`${topic.slug[0].toUpperCase()}${topic.slug.slice(1)}`}</Link>)
-                    })}
-                    {username ? <button onClick={handleLogOut} className="menu-item-button" >log out</button> : null}
+                    <Link to="/" className="menu-item" onClick={handleNavLinkClick}>Home</Link>
+
+                    {username ? (
+                        <Link to={`/users/${username}`} className="menu-item" onClick={handleNavLinkClick}>Profile</Link>
+                    ) : (
+                        <Link to="/login" className="menu-item" onClick={handleNavLinkClick}>Login</Link>
+                    )}
+
+                    <Link to="/articles" className="menu-item" onClick={handleNavLinkClick}>All Articles</Link>
+
+                    {topics.map((topic) => (
+                        <Link
+                            to={`/topics/${topic.slug}`}
+                            key={topic.slug}
+                            className="menu-item"
+                            onClick={handleNavLinkClick}
+                        >
+                            {`${topic.slug[0].toUpperCase()}${topic.slug.slice(1)}`}
+                        </Link>
+                    ))}
+
+                    {username && (
+                        <button
+                            onClick={(event) => {
+                                handleLogOut(event);
+                                handleNavLinkClick();
+                            }}
+                            className="button button-outline button-small"
+                        >
+                            Log Out
+                        </button>
+                    )}
                 </nav>
                 :
                 null

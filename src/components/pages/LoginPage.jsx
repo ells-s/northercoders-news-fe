@@ -36,22 +36,26 @@ function LoginPage({ username, setUsername }) {
                 }
             })
             .catch((err) => {
-                setErrorMessage("An error occured when trying to log in. Please try again.")
+                setErrorMessage("An error occurred when trying to log in. Please try again.")
             })
     }
 
     return (
-        <>
-            <form>
+        <div className="container login-page-container">
+            <form className="form-container">
+                <label htmlFor="usernameForm" className="form-label">
+                    Type your username and click Sign In:
+                </label>
                 <input
-                    placeholder="Username"
+                    placeholder="e.g. jessjelly"
                     id="usernameForm"
                     onChange={handleUsernameInputChange}
-                ></input>
-                <button onClick={setUsernameFromTextBox}>Sign In</button>
+                    className="form-input"
+                />
+                <button onClick={setUsernameFromTextBox} className="button">Sign In</button>
             </form>
-            {errorMessage ? <p>{errorMessage}</p> : null}
-        </>
+            {errorMessage && <p className="form-error-message">{errorMessage}</p>}
+        </div>
     )
 
 }

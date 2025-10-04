@@ -1,4 +1,8 @@
 function Topics() {
-    return <h1>Topics</h1>
+    return (
+        <div className="container">
+            <h1>Topics</h1>
+        </div>
+    )
 }
 export default Topics

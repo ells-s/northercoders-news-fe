@@ -37,19 +37,19 @@ function Article({ username }) {
 
 
     return (
-        <>
+        <div className="container">
             {
                 errorMessage ?
 
-                    <p>An error occured trying to get this article.</p>
+                    <p>An error occurred trying to get this article.</p>
 
                     :
-                    <article className="indiviual-article">
-                        <section className="indiviual-article-header">
+                    <article className="individual-article">
+                        <section className="individual-article-header">
                             <h1>{currentArticle.title}</h1>
                             <img src={currentArticle.article_img_url}></img>
                         </section>
-                        <section className="indiviual-article-info-section">
+                        <section className="individual-article-info-section">
                             <div>
                                 <p className="individual-article-author"> <strong>By</strong> <Link to={`../users/${currentArticle.author}`}>{currentArticle.author}</Link></p>
                                 <p><Link to={`../topics/${currentArticle.topic}`}>{currentArticle.topic}</Link></p>
@@ -68,7 +68,7 @@ function Article({ username }) {
                     </article>
             }
 
-        </>
+        </div>
 
     )
 

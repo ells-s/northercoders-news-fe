@@ -79,3 +79,11 @@ export const fetchArticlesByTopic = (topic) => {
             return data.articles
         })
 }
+
+export const fetchUserByUsername = (username) => {
+    return ncNewsApi
+        .get(`/users/${username}`)
+        .then(({ data }) => {
+            return data.user[0];
+        });
+};

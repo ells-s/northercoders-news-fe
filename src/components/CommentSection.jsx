@@ -20,7 +20,7 @@ function CommentSection({ article_id, username }) {
                 setComments(res)
             })
             .catch((err) => {
-                setCommentFetchingError("An error occured when trying to access the comments. Please try again.")
+                setCommentFetchingError("An error occurred when trying to access the comments. Please try again.")
             })
     }, [newCommentPosted, commentDeleted])
 
@@ -48,7 +48,7 @@ function CommentSection({ article_id, username }) {
                     <p>No comments. Would you like to be the first to add one?</p>
                     :
                     <section>
-                        {deleteCommentError ? <p>{deleteCommentMessage}</p> : null}
+                        {deleteCommentError ? <p>{deleteCommentError}</p> : null}
 
                         {loading ? <p>Loading...</p> :
 
@@ -63,10 +63,12 @@ function CommentSection({ article_id, username }) {
                                                 <p><strong>Votes:</strong> {comment.votes}</p>
                                             </div>
                                             {username === comment.author ?
-                                                <button name="delete-comment"
-                                                    className="delete-comment-button"
-                                                    onClick={(event) => handleCommentDeletion(event, comment.comment_id)}>
-                                                    delete
+                                                <button
+                                                    name="delete-comment"
+                                                    className="button button-danger"
+                                                    onClick={(event) => handleCommentDeletion(event, comment.comment_id)}
+                                                >
+                                                    Delete
                                                 </button>
                                                 :
                                                 null}
