@@ -1,7 +1,7 @@
 # NC News Frontend
 
 ## About this project  
-[Hosted Version: ] 
+[Hosted Version: ](https://ells-s-nc-news.netlify.app) https://ells-s-nc-news.netlify.app
 
 ### Project overview  
 This project is a **frontend React application** designed to emulate a modern news website. It communicates with a RESTful backend API and allows users to:
